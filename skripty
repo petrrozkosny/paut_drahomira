@@ -1,0 +1,22 @@
+# Cesta k souboru Excel
+$excelFilePath = 'C:\Users\Student\Desktop\paut_excel1.xlsx'
+# Vytvoříme nový Excel COM objekt
+$excel = New-Object -ComObject Excel.Application
+
+# Skript bude pokračovat i při chybách
+$excel.Visible = $true
+$excel.DisplayAlerts = $true
+
+
+    # Otevřeme soubor Excel
+    $workbook = $excel.Workbooks.Open($excelFilePath)
+
+    # Aktualizujeme všechna připojení
+    foreach ($connection in $workbook.Connections) {
+        $workbook.RefreshAll()
+    }
+
+ Start-Sleep -Milliseconds 15000
+$workbook.Save()
+$workbook.Close()
+$excel.Quit()
