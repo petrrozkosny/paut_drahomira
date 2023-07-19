@@ -1,3 +1,13 @@
+# Retrieve the current Windows username
+$currentUser = $env:USERNAME
+
+# Output the username
+Write-Host $currentUser
+
+_______________
+
+
+
 # Cesta k souboru Excel
 $excelFilePath = 'C:\Users\Student\Desktop\paut_excel1.xlsx'
 # Vytvoříme nový Excel COM objekt
